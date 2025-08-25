@@ -8,8 +8,7 @@ namespace RandomAPI.Controllers
     public class RandomController : ControllerBase
     {
         private readonly Random _random = new Random();
-
-        // GET /random/number
+        
         [HttpGet("number")]
         public IActionResult GetRandomNumber([FromQuery] int? min, [FromQuery] int? max)
         {
@@ -23,15 +22,13 @@ namespace RandomAPI.Controllers
 
             return Ok(_random.Next());
         }
-
-        // GET /random/decimal
+        
         [HttpGet("decimal")]
         public IActionResult GetRandomDecimal()
         {
             return Ok(_random.NextDouble());
         }
-
-        // GET /random/string?length=8
+        
         [HttpGet("string")]
         public IActionResult GetRandomString([FromQuery] int length = 8)
         {
@@ -45,8 +42,7 @@ namespace RandomAPI.Controllers
 
             return Ok(sb.ToString());
         }
-
-        // POST /random/custom
+        
         [HttpPost("custom")]
         public IActionResult GetCustomRandom([FromBody] CustomRandomRequest request)
         {
